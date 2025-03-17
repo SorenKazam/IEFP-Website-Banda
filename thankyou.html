@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obrigado por se Inscrever!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1 class="fade-in">Obrigado por se Inscrever!</h1>
+    </header>
+
+    <!-- Agradecimento -->
+    <section class="thank-you-newsletter slide-up fade-in" id="thankYou">
+      <h2>Obrigado, <span id="name"></span>!</h2>
+      <p>Você agora está por dentro das novidades da nossa turnê!</p>
+      <p>Deseja receber nossa Newsletter?</p>
+      <div class="btns">
+        <button class="btn" onclick="window.location.href = 'newsletter.html';">
+          Sim, quero!
+        </button>
+        <button
+          class="btn"
+          onclick="window.location.href = 'index.html';"
+          id="noBtn"
+        >
+          Não, obrigado!
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="top">
+          <div class="footerAbout">
+            <h2>MULTIMEDIA band</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
+              tempora hic labore, cum nobis consequatur assumenda exercitationem
+              beatae blanditiis, necessitatibus quis cupiditate at officia, quos
+              nesciunt delectus ad magnam incidunt.
+            </p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum
+              libero fugit recusandae veniam eveniet consequatur, commodi
+              suscipit soluta officia illum pariatur corrupti obcaecati id
+              accusantium perferendis dolorem earum tempora praesentium!
+            </p>
+          </div>
+          <div class="info">
+            <h2>Informação</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
+              tempora hic labore, cum nobis consequatur assumenda exercitationem
+              beatae blanditiis, necessitatibus quis cupiditate at officia, quos
+              nesciunt delectus ad magnam incidunt.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perferendis culpa impedit eligendi nisi quasi amet maxime
+              temporibus, veritatis expedita esse ex, accusamus doloribus a
+              doloremque quidem laborum dignissimos commodi! Consectetur.
+            </p>
+          </div>
+          <div class="map">
+            <h2>Onde estamos?</h2>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50813.487781097654!2d-115.84520655895841!3d37.251432634227314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b81baaba3e8c81%3A0x970427e38e6237ae!2zw4FyZWEgNTEsIE5WLCBFVUE!5e0!3m2!1spt-PT!2spt!4v1741945506620!5m2!1spt-PT!2spt"
+              width="800"
+              height="600"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div class="bottom">
+          <p><span>Multimedia Band</span> World Tour &copy; 2025</p>
+          <p>Tiago Guerreiro Coding</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Pega o nome da URL e mostra na página
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name");
+      document.getElementById("name").textContent = name;
+
+      // butao fugitivo lolmao bueda fixe kkkkkkkkkkkkk
+      var noBtn = document.getElementById("noBtn");
+
+      noBtn.addEventListener("mouseover", () => {
+        // Obtém a largura e altura da janela
+        let maxWidth = window.innerWidth - noBtn.clientWidth;
+        let maxHeight = window.innerHeight - noBtn.clientHeight;
+
+        // Define uma posição aleatória dentro da tela
+        let newX = Math.random() * maxWidth;
+        let newY = Math.random() * maxHeight;
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
+      });
+    </script>
+  </body>
+</html>

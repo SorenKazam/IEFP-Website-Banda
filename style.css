@@ -1,0 +1,822 @@
+/* Estilos gerais */
+* {
+  transition: 0.5s;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Layout da Página */
+header,
+footer {
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin: 10px 0;
+  text-shadow: 0px 0px 30px black;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  text-decoration: none;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  background-color: #d84315;
+  transform: scale(1.05);
+}
+
+input {
+  border: 0px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 15px;
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid #d84315;
+  transform: scale(1.05);
+}
+
+/* Efeitos de Fade-in */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+body.loaded .fade-in {
+  opacity: 1;
+}
+
+/* Efeito de Slide-up */
+.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+body.loaded .slide-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Formulários */
+.signup,
+.thank-you-newsletter,
+.newsletter-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* PARALLAX */
+  /* A imagem de fundo */
+  background-image: url("./assets/fundo-forms.jpg");
+
+  /* Define a altura fixa para o hero */
+  min-height: 500px;
+
+  /* Cria o efeito parallax */
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Adiciona uma camada semitransparente com o efeito blur */
+  position: relative;
+}
+
+.signup,
+.thank-you-newsletter,
+.newsletter-form > h2 {
+  color: white;
+  font-size: 2rem;
+  text-shadow: 0px 0px 30px black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.thank-you-newsletter {
+  height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  width: 100%;
+  position: fixed;
+  top: 80px; /* Ajuste conforme necessário para o tamanho do header */
+  transition: top 0.3s ease-in-out;
+  z-index: 10;
+  padding: 15px 0px;
+}
+
+.navbar .hamburguer {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar.fixed {
+  top: 0;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.603);
+}
+
+/* Banner */
+.banner {
+  background-color: #222;
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+
+.hero {
+  /* A imagem de fundo */
+  background-image: url("./assets/background.webp");
+
+  /* Define a altura fixa para o hero */
+  min-height: 500px;
+  height: 100vh;
+
+  /* Cria o efeito parallax */
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Centraliza o conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Adiciona uma camada semitransparente com o efeito blur */
+  position: relative;
+}
+
+.hero::before {
+  /* Cria uma camada antes do conteúdo para aplicar o efeito */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Aplica o desfoque */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  z-index: 1; /* Coloca a camada atrás do conteúdo */
+}
+
+.hero > h2 {
+  color: white;
+  font-size: 100px;
+  font-weight: bolder;
+  z-index: 1;
+}
+
+.whiteSpace {
+  margin-bottom: 999px;
+}
+
+.sponsors {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0px;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  gap: 30px;
+}
+
+.sponsors > .show-more {
+  display: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+a:hover {
+  text-decoration: underline;
+  letter-spacing: 2px;
+}
+
+.sponsors > a {
+  font-size: 1.3rem;
+}
+
+.sponsors > a:hover {
+  font-weight: bolder;
+  padding: 0px 20px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+/* FOOTER STUFF */
+footer {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content > .top {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid white;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footer-content > .top > div {
+  padding: 10px;
+  text-align: start;
+  max-width: 400px;
+}
+
+.footer-content > .top > div > h2 {
+  color: white;
+  font-weight: bolder;
+}
+
+.footer-content > .top > div > p {
+  color: #b1b1b1;
+  font-weight: lighter;
+}
+
+.footer-content > .top > .map > iframe {
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+}
+
+.footer-content > .bottom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-content > .bottom > p {
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.footer-content > .bottom > p > span {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+#goTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+
+  /* EFEITO BLURRY */
+  background: rgba(
+    255,
+    87,
+    34,
+    0.5
+  ); /* Fundo semi-transparente para contraste */
+
+  backdrop-filter: blur(10px); /* Aplica o desfoque na área atrás da div */
+  -webkit-backdrop-filter: blur(
+    10px
+  ); /* Para compatibilidade com WebKit (ex: Safari) */
+}
+
+#goTopBtn:hover {
+  background-color: #d84315;
+}
+
+.quickLink {
+  top: -200px;
+  position: absolute;
+  background-color: #d84315;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.quickLink:focus {
+  top: 10px;
+  left: 20px;
+  position: absolute;
+}
+
+.glassEffect {
+  transition: 0.5s;
+  /* EFEITO BLURRY */
+  background: rgba(
+    100,
+    100,
+    100,
+    0.5
+  ) !important; /* Fundo semi-transparente para contraste */
+
+  backdrop-filter: blur(
+    10px
+  ) !important; /* Aplica o desfoque na área atrás da div */
+  -webkit-backdrop-filter: blur(
+    10px
+  ) !important; /* Para compatibilidade com WebKit (ex: Safari) */
+}
+
+/* ABOUT SECTION */
+.about {
+  background-color: #222;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: end;
+}
+
+.about > iframe {
+  width: 50%;
+  height: 100%;
+}
+
+.about > .textContainer {
+  width: 50%;
+  max-width: 500px;
+}
+
+.about > .textContainer > h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+.about > .textContainer > p {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* WORLD TOUR SECTION */
+/* Banner */
+.tourBanner {
+  background-color: #222;
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+
+.tourHero {
+  /* A imagem de fundo */
+  background-image: url("./assets/fundo-world-tour.jpg");
+
+  /* Define a altura fixa para o hero */
+  min-height: 500px;
+
+  /* Cria o efeito parallax */
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Centraliza o conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+
+  /* Adiciona uma camada semitransparente com o efeito blur */
+  position: relative;
+
+  height: 100vh;
+}
+
+.tourHero::before {
+  /* Cria uma camada antes do conteúdo para aplicar o efeito*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Aplica o desfoque */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  z-index: 1; /* Coloca a camada atrás do conteúdo */
+}
+
+.tourHero > h2 {
+  color: white;
+  font-size: 5rem;
+  font-weight: bolder;
+  z-index: 1;
+}
+
+.tourHero > .list {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 15px 15px 0px 0px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  z-index: 1;
+  bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.tourHero > .list h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.tourHero > .list hr {
+  border: 0;
+  height: 2px;
+  background: white;
+  margin: 10px auto;
+  width: 50%;
+}
+
+/* Lista principal */
+.tourHero > .list ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Continentes */
+.tourHero > .list > ul > li {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.tourHero > .list > ul > li:hover {
+  color: white;
+}
+
+/* Sub-lista (Países) */
+.tourHero > .list ul ul {
+  margin-top: 5px;
+  padding-left: 20px;
+  display: block;
+}
+
+.tourHero > .list ul ul li {
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin: 5px 0;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.tourHero > .list ul ul li:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Tornar lista responsiva */
+@media (max-width: 768px) {
+  .list {
+    max-width: 100%;
+  }
+
+  .list h3 {
+    font-size: 1.5rem;
+  }
+
+  .list > ul > li {
+    font-size: 1.2rem;
+  }
+
+  .list ul ul li {
+    font-size: 1rem;
+  }
+}
+
+@keyframes scroll-animation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(50px, 100px);
+  }
+  100% {
+    transform: translate(100px, 50px);
+  }
+}
+
+/* remover as animaçoes de .hidden */
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateX(-100%);
+  transition: all 0.5s;
+}
+
+.ativo {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+  transition: all 0.5s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  /* WORLD TOUR SECTION */
+  /* Banner */
+  .tourBanner {
+    padding: 0px;
+  }
+
+  .tourHero {
+    height: auto;
+  }
+
+  .tourHero::before {
+    /* Cria uma camada antes do conteúdo para aplicar o efeito*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Aplica o desfoque */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Para Safari */
+    z-index: 1; /* Coloca a camada atrás do conteúdo */
+  }
+
+  .tourHero > h2 {
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    z-index: 1;
+    margin: 30px 0px 10px 0px;
+    text-align: center;
+  }
+
+  .tourHero > .list {
+    width: 90%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+    z-index: 1;
+  }
+
+  .tourHero > .list h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .tourHero > .list hr {
+    width: 90%;
+  }
+
+  /* Lista principal */
+  .tourHero > .list ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Continentes */
+  .tourHero > .list > ul > li {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: relative;
+  }
+
+  .tourHero > .list > ul > li:hover {
+    color: white;
+  }
+
+  /* Sub-lista (Países) */
+  .tourHero > .list ul ul {
+    margin-top: 5px;
+    padding-left: 0px;
+    display: block;
+  }
+
+  .tourHero > .list ul ul li {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin: 5px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0px;
+    transition: 0.3s;
+  }
+
+  .tourHero > .list ul ul li:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  header,
+  footer {
+    padding: 10px;
+  }
+
+  .navbar {
+    top: 70px; /* Ajuste conforme necessário para o tamanho do header */
+    text-align: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .navbar li {
+    margin: 5px 0;
+  }
+
+  .sponsors > a {
+    display: none;
+  }
+
+  .sponsors > .show-more {
+    display: block;
+    color: white;
+  }
+
+  .footer-content > .top {
+    flex-direction: column;
+  }
+
+  .footer-content > .top > div {
+    padding: 10px;
+    text-align: start;
+    max-width: none;
+    width: -moz-available;
+  }
+
+  .footer-content > .top > .map > iframe {
+    border-radius: 15px;
+    width: 100%;
+    height: 300px;
+  }
+
+  #goTopBtn {
+    bottom: 0px;
+    right: 0px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 0px;
+    width: 100%;
+    display: flex;
+  }
+
+  footer {
+    margin-bottom: 30px;
+  }
+
+  .signup {
+    padding: 0px;
+  }
+
+  .formulario {
+    width: 90%;
+  }
+
+  .quickLink {
+    top: -200px;
+    position: absolute;
+    background-color: #d84315;
+    padding: 0px;
+    border-radius: 15px;
+    width: 10vw;
+  }
+
+  .quickLink:focus {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    background-color: #d84315;
+    padding: 0px;
+    border-radius: 0px;
+    width: 100vw;
+    text-align: center;
+  }
+
+  /* ABOUT SECTION BRO */
+  .about {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    height: auto;
+  }
+
+  .about > iframe {
+    width: 100%;
+    height: 300px;
+  }
+
+  .about > .textContainer {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 430px) {
+  header {
+    display: none; /* Ajuste conforme necessário para o tamanho do header */
+  }
+
+  .navbar {
+    top: 0px;
+  }
+
+  h2 {
+    font-size: 10vw;
+  }
+
+  .hero h2 {
+    font-size: 10vw;
+  }
+}
